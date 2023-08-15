@@ -1,0 +1,113 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - get_performance
+  - get_fund_info
+  - compare_funds
+  - get_fund_family
+  - inform
+  - get_stock_info
+  - get_etf_performance
+  - get_etf_family
+  - get_etf_info
+  - compare_etf
+
+entities:
+  - fund_symbol
+  - performance_metric
+  - price_date
+  - fund_short_name
+  - fund_family
+  - stock_symbol
+  - etf_symbol
+
+slots:
+  fund_symbol:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: fund_symbol
+  performance_metric:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: performance_metric
+  price_date:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: price_date
+  fund_short_name:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: fund_short_name
+  fund_family:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: fund_family
+  stock_symbol:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: stock_symbol
+  etf_symbol:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: etf_symbol
+  
+responses:
+  utter_greet:
+  - text: "Hey! How are you?"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+  
+  utter_get_performance:
+  - text: "The performance of {fund_symbol} is as follows:\n1-Year Return: {1_year}%\n3-Year Return: {3_years}%\n5-Year Return: {5_years}%\n10-Year Return: {10_years}%\nLast Bull Market Return: {last_bull_market}%\nLast Bear Market Return: {last_bear_market}%"
+
+  utter_get_fund_family:
+  - text: "The mutual fund {fund_symbol} belongs to the {fund_family} family."
+
+  utter_get_fund_info:
+  - text: "Here is some information about {fund_short_name}:\nFund Category: [fund_category]\nFund Family: [fund_family]"
+  
+  utter_compare_funds:
+  - text: "Comparing the performance of {fund_symbol_1} and {fund_symbol_2}:\n1-Year Return: [fund_1_return_1year]% vs. [fund_2_return_1year]%\n3-Year Return: [fund_1_return_3years]% vs. [fund_2_return_3years]%\n5-Year Return: [fund_1_return_5years]% vs. [fund_2_return_5years]%\n10-Year Return: [fund_1_return_10years]% vs. [fund_2_return_10years]%\nLast Bull Market Return: [fund_1_return_last_bull_market]% vs. [fund_2_return_last_bull_market]%\nLast Bear Market Return: [fund_1_return_last_bear_market]% vs. [fund_2_return_last_bear_market]%"
+
+  utter_get_stock_info:
+  - text: "The stock details for {stock_symbol} is as below."
+
+  utter_get_etf_performance:
+  - text: "The performance of {etf_symbol} is as follows:\n1-Year Return: {1_year}%\n3-Year Return: {3_years}%\n5-Year Return: {5_years}%\n10-Year Return: {10_years}%\nfund_sharpe_ratio_5years: {fund_sharpe_ratio_5years}%\nfund_treynor_ratio_5years: {fund_treynor_ratio_5years}%"
+
+  utter_get_etf_family:
+  - text: "The mutual fund {etf_symbol} belongs to the {fund_family} family."
+
+  utter_get_etf_info:
+  - text: "Here is some information about {fund_short_name}:\nFund Category: [fund_category]\nFund Family: [fund_family]"
+  
+  utter_compare_etf:
+  - text: "Comparing the performance of {etf_symbol_1} and {etf_symbol_2}:\n1-Year Return: [fund_1_return_1year]% vs. [fund_2_return_1year]%\n3-Year Return: [fund_1_return_3years]% vs. [fund_2_return_3years]%\n5-Year Return: [fund_1_return_5years]% vs. [fund_2_return_5years]%\n10-Year Return: [fund_1_return_10years]% vs. [fund_2_return_10years]"
+
+actions:
+  - action_get_performance
+  - action_get_fund_family
+  - action_get_fund_info
+  - action_compare_funds
+  - action_get_stock_data
+  - action_get_etf_performance
+  - action_get_etf_family
+  - action_get_etf_info
+  - action_compare_etf
+  
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

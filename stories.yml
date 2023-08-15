@@ -1,0 +1,74 @@
+version: "3.1"
+stories:
+- story: greet
+  steps:
+  - intent: greet
+  - action: utter_greet
+- story: goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+- story: get_performance
+  steps:
+  - intent: get_performance
+    entities:
+    - fund_symbol: "AMZN"
+  - action: action_get_performance 
+
+- story: get_fund_info
+  steps:
+  - intent: get_fund_info
+    entities:
+    - fund_symbol: "AAAAX"
+  - action: action_get_fund_info
+
+- story: get_fund_family
+  steps:
+  - intent: get_fund_family
+    entities:
+    - fund_symbol: "AAAAX"
+  - action: action_get_fund_family
+
+- story: compare_funds
+  steps:
+  - intent: compare_funds
+    entities:
+    - fund_symbol: "AAAAX"
+    - fund_symbol: "BBBAX"
+  - action: action_compare_funds
+
+- story: get_etf_performance
+  steps:
+  - intent: get_etf_performance
+    entities:
+    - etf_symbol: "AMZN"
+  - action: action_get_etf_performance
+
+- story: get_etf_info
+  steps:
+  - intent: get_etf_info
+    entities:
+    - etf_symbol: "AAAX"
+  - action: action_get_etf_info
+
+- story: get_etf_family
+  steps:
+  - intent: get_etf_family
+    entities:
+    - etf_symbol: "AAAAX"
+  - action: action_get_etf_family
+  
+- story: compare_etf
+  steps:
+  - intent: compare_etf
+    entities:
+    - etf_symbol: "VTIA"
+    - etf_symbol: "GLDB"
+  - action: action_compare_etf
+
+- story: get_stock_info
+  steps:
+  - intent: get_stock_info
+    entities:
+    - stock_symbol: "AAPL"
+  - action: action_get_stock_data

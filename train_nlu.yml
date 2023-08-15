@@ -1,0 +1,65 @@
+version: "3.1"
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+   
+- intent: inform
+  examples: |
+    - I need some information.
+    - Can you tell me more?
+    - I want to know about this.
+    - What is the price of this product?
+    
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    
+- intent: get_performance
+  examples: |
+    - What is the performance of [AMZN](fund_symbol)?
+    - How has [GOOG](fund_symbol) performed in the last [1 year](performance_metric)?
+  
+- intent: get_fund_family
+  examples: |
+    - What is the family of [AAAAX](fund_symbol)?
+    - Tell me the mutual fund family for [AAAAX](fund_symbol).
+    - Get the family name of [AAAAX](fund_symbol).
+
+- intent: get_fund_info
+  examples: |
+    - Give me details about [AAAAX](fund_symbol).
+    - What is the investment strategy of [AAAAX](fund_symbol)?
+    
+- intent: compare_funds
+  examples: |
+    - Compare the performance of [AMZN](fund_symbol) and [GOOG](fund_symbol).
+    - Which one performed better, [AAPL](fund_symbol) or [MSFT](fund_symbol)?
